@@ -1,0 +1,16 @@
+{
+  "name": "esy-ninja",
+  "version": "1.12.1",
+  "description": "Esy ninja build",
+  "esy": {
+    "buildsInSource": true,
+    "build": [
+      "cmake -Bbuild-cmake -DBUILD_TESTING=OFF",
+      "cmake --build build-cmake"
+    ],
+    "install": ["cp -r #{self.target_dir / 'build-cmake/'} #{self.bin}"]
+  },
+  "dependencies": {
+    "@opam/conf-cmake": "grain-lang/cmake:esy.json#91a2c3677bef84a6eb20318284dff9f3bf32719d"
+  }
+}
